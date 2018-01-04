@@ -4,7 +4,6 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -24,7 +23,6 @@ main.disable('etag');
 main.use(logger('dev'));
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
-main.use(cookieParser());
 main.use(express.static(path.join(__dirname, './public')));
 
 main.use('/', routes);
