@@ -13,7 +13,6 @@ var friendlists = require('./routes/friendlists');
 var paths = require('./routes/paths');
 var notices = require('./routes/notices');
 var groupparticipants = require('./routes/groupparticipants');
-var images = require('./routes/images');
 var locations = require('./routes/locations');
 
 var main = express();
@@ -33,7 +32,6 @@ main.use('/groups', groups);
 main.use('/paths', paths);
 main.use('/notices', notices);
 main.use('/groupparticipants', groupparticipants);
-main.use('/images',images);
 main.use('/locations',locations);
 
 // catch 404 and forward to error handler
