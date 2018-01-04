@@ -2,6 +2,8 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
+
+var main = require('./main');
     
 Object.assign=require('object-assign')
 
