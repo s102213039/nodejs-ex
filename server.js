@@ -4,7 +4,8 @@ var express = require('express'),
     morgan  = require('morgan');
 
 var main 	= require('./main');
-    
+var http 	= require('http');
+var start = http.createServer(main);
 Object.assign=require('object-assign')
 
 server.use(morgan('combined'))
