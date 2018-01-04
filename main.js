@@ -16,28 +16,28 @@ var groupparticipants = require('./routes/groupparticipants');
 var images = require('./routes/images');
 var locations = require('./routes/locations');
 
-var app = express();
+var main = express();
 
-app.disable('etag');
+main.disable('etag');
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, './public')));
+main.use(logger('dev'));
+main.use(bodyParser.json());
+main.use(bodyParser.urlencoded({ extended: false }));
+main.use(express.static(path.join(__dirname, './public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/runresults', runresults);
-app.use('/friendlists', friendlists);
-app.use('/groups', groups);
-app.use('/paths', paths);
-app.use('/notices', notices);
-app.use('/groupparticipants', groupparticipants);
-app.use('/images',images);
-app.use('/locations',locations);
+main.use('/', routes);
+main.use('/users', users);
+main.use('/runresults', runresults);
+main.use('/friendlists', friendlists);
+main.use('/groups', groups);
+main.use('/paths', paths);
+main.use('/notices', notices);
+main.use('/groupparticipants', groupparticipants);
+main.use('/images',images);
+main.use('/locations',locations);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+main.use(function(req, res, next) {
   var err = new Error('404 Not Found');
   err.status = 404;
   next(err);
@@ -47,8 +47,8 @@ app.use(function(req, res, next) {
 //================
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+if (main.get('env') === 'development') {
+  main.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.send('error'+ err.message );
   });
@@ -56,10 +56,10 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+main.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.send('app.js:error  '+ err.message);
+  res.send('main.js:error  '+ err.message);
 });
 
 
-module.exports = app;
+module.exports = main;
