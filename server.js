@@ -24,7 +24,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
       mongoUser = process.env[mongoServiceName + '_USER'];
 
   if (mongoHost && mongoPort && mongoDatabase) {
-    mongoURLLabel = mongoURL = 'mongodb://';
+    mongoURLLabel = mongoURL = 'mongodb://user:user@ds011903.mlab.com:11903/runningman';
     if (mongoUser && mongoPassword) {
       mongoURL += mongoUser + ':' + mongoPassword + '@';
     }
